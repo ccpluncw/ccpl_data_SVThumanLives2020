@@ -1,0 +1,70 @@
+probe	condQ
+a pedophile	single
+a rapist	single
+a terrorist	single
+a soldier	single
+an orphan	single
+a celebrity	single
+an adult	single
+a thief	single
+a police officer	single
+a billionaire	single
+a college student	single
+a congressman	single
+a convict	single
+a gang member	single
+a homeless adult	single
+a judge	single
+a mentor	single
+a nun	single
+an addict	single
+an assassin	single
+an astronaut	single
+an elderly person	single
+an Olympian	single
+3 pedophiles	small
+9 rapists	small
+8 terrorists	small
+4 soldiers	small
+5 orphans	small
+5 celebrities	small
+9 adults	small
+6 thieves	small
+6 police officers	small
+8 billionaires	small
+3 college students	small
+4 congressmen	small
+7 convicts	small
+5 gang members	small
+4 homeless adults	small
+9 judges	small
+5 mentors	small
+4 nuns	small
+6 addicts	small
+7 assassins	small
+5 astronauts	small
+6 elderly people	small
+3 Olympians	small
+47 pedophiles	large
+53 rapists	large
+52 terrorists	large
+48 soldiers	large
+49 orphans	large
+49 celebrities	large
+53 adults	large
+50 thieves	large
+50 police officers	large
+52 billionaires	large
+47 college students	large
+48 congressmen	large
+51 convicts	large
+49 gang members	large
+48 homeless adults	large
+53 judges	large
+49 mentors	large
+48 nuns	large
+50 addicts	large
+51 assassins	large
+49 astronauts	large
+50 elderly people	large
+47 Olympians	large

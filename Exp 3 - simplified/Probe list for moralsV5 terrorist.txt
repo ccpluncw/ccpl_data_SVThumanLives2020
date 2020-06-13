@@ -1,0 +1,29 @@
+probe	item_id
+a billionaire	15
+a celebrity	14
+a cockroach	5
+a college student	26
+a congressman	13
+a convict	9
+a gang member	8
+a homeless adult	16
+a judge	21
+a life-saving antidote	28
+a mentor	22
+a nun	18
+a pedophile	1
+a police officer	19
+a rabid possum	6
+a rapist	2
+a smartphone	12
+a soldier	27
+a terrorist	3
+a thief	7
+an addict	11
+an adult	24
+an adult with a deadly contagious disease	10
+an assassin	4
+an astronaut	17
+an elderly person	25
+an Olympian	20
+an orphan	23

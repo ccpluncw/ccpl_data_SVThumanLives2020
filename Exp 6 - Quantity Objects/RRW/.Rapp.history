@@ -1,0 +1,320 @@
+require(h20)
+require(h2o)
+h2o.shutdown()
+h2o.init(nthreads = -1)
+h2o.shutdown()
+h2o.init(nthreads = -1)
+train_file <- "https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/mnist/train.csv.gz"test_file <- "https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/mnist/test.csv.gz"
+train <- h2o.importFile(train_file) #
+test <- h2o.importFile(test_file)
+y <- "C785"#
+x <- setdiff(names(train), y)
+train[,y] <- as.factor(train[,y])test[,y] <- as.factor(test[,y])
+model <- h2o.deeplearning(x = x, y = y, training_frame = train, validation_frame = test, distribution = "multinomial", activation = "RectifierWithDropout", hidden = c(200,200,200), input_dropout_ratio = 0.2, l1 = 1e-5, epochs = 10)
+h2o.performance(model, train = TRUE) # training set metrics
+h2o.performance(model, valid = TRUE) # validation set metrics # Get MSE onlyh2o.mse(model, valid = TRUE) # Cross-validated MSEh2o.mse(model_cv, xval = TRUE)
+h2o.mse(model, xval = TRUE)
+h2o.shutdown()
+rnorm
+dnorm(0)
+v1 <- c(1, 2, 3)
+v1
+M = matrix( c(1, "a", 3, 4, "b", "c"), nrow=2, ncol=3, byrow=TRUE)
+M
+M+2
+M[1,1}=1]
+M[1,1]+1
+x <- 30
+if(is.integer(x)) {}
+if(is.integer(x)) {print ("X is an integer")}
+if(is.integer(x)) {print("X is an integer")}
+x<-30L
+if(is.integer(x)) {print("X is an integer")}
+v <- c(3, 7, 5, 8)
+x <- 1
+t <- 1
+if(v[x])
+if(v[x] > v[x+1]) {}
+smallest <- v[1]
+if(smalllest > v[2]) {smallest <- v[2]}
+if(smallest > v[2]) {smallest <- v[2]}
+smallest
+if(smallest > v[3]0 {smallest <- v[3]}
+if(smallest > v[3]) {smallest <- v[3]}
+if(sma)
+if(smallest > v[4]) {smallest <- v[4]}
+if(smallest > v[5]) {smallest <- v[5]}
+v <- c(7, 2, 5, 9, 10)
+if(smallest > v[2]) {smallest <- v[2]}
+if(smallest > v[3]) {smallest <- v[3]}
+if(smallest > v[4]) {smallest <- v[4]}
+if(smallest > v[5]) {smallest <- v[5]}
+smallest
+x <- 1#
+first <- 10#
+v <- c(4, 6, 2, 7)#
+while(x<5) {#
+  if(first>v[x]) {#
+    first <- v[x]#
+  } #
+  x=x+1#
+}#
+s <- 1#
+while (v[s] != first) {#
+  s+1#
+}#
+s#
+p = v[1]#
+v[1] = first#
+v[s] = p
+s
+source("vectloop.r", echo=T)
+source("vectLoop.r", echo=T)
+source("charity.r")
+source("charityYouRW.r")
+source("charityYouRW.r")
+loopsPerRWstepFitted <- ifelse (test, 50, 200)
+x.in <- as.list(x.grid$final)#
+  #NULL out the unused parameters#
+  x.in$r_out <- NULL#
+  x.in$sdR_out <- NULL#
+  #add the raw data#
+#  x.in$data <- df.raw#
+  #add the output filenames#
+  x.in$sinkFilename <- paste(fileTag,"FitResults.txt")#
+  #add the other paramters#
+  x.in <- c(x.in, otherParamList)#
+  #increase the loopsPerRWstep to 2000 to get a stable view#
+  x.in$loopsPerRWstep = loopsPerRWstepFitted#
+#
+  #run the RRW to get the fit given the parameters output by the smartGridSearch#
+  df.fitted <- do.call(getRRWfit, x.in)#
+  #save the fit data#
+  filename <- paste(fileTag,"Fitted.txt")#
+  write.table(df.fitted, filename, col.names=T, row.names=F, quote=F, sep="\t")#
+#
+ #plot the output#
+ plotFilename <- paste(fileTag,"FitResults.pdf")#
+ yMinMixRT <- chutils::ch.getPlotAxisMinMax(df.fitted$rt)#
+ if(choiceRespBias) {#
+   plotRRWFit (df.fitted[df.fitted$startEffectTen !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffectTen",  plotFilename = paste("startEffectTen", plotFilename), yMinMixRT=yMinMixRT)#
+   plotRRWFit (df.fitted[df.fitted$startEffectTwentyFive !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffectTwentyFive",  plotFilename = paste("startEffectTwentyFive", plotFilename), yMinMixRT=yMinMixRT)#
+   plotRRWFit (df.fitted[df.fitted$startEffectSeventyFive !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffectSeventyFive",  plotFilename = paste("startEffectSeventyFive", plotFilename), yMinMixRT=yMinMixRT)#
+ }#
+ if(speedRespBias) {#
+   plotRRWFit (df.fitted[df.fitted$boundaryTen !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("boundaryTen", plotFilename), yMinMixRT=yMinMixRT)#
+   plotRRWFit (df.fitted[df.fitted$boundaryTwentyFive !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("boundaryTwentyFive", plotFilename), yMinMixRT=yMinMixRT)#
+   plotRRWFit (df.fitted[df.fitted$boundarySeventyFive !=0, ], otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("boundarySeventyFive", plotFilename), yMinMixRT=yMinMixRT)#
+ }
+source("charityYouRW.r")
+source("quantValues.r")
+source("quantValues.r")
+source("terrValues.r")
+source("moralsRespBiasRW.r")
+data.raw
+df.raw
+source("moralsRespBiasRW.r", echo=T)
+otherParameters
+otherParamList
+source("moralsRespBiasRW.r", echo=T)
+keepColsRT
+pU
+pI
+ch.updateRpackage(packageName="RRW")
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+install(RRW)
+library(devtools)#
+library(roxygen2)
+wd <- getwd()
+setwd("~/Dropbox/UNCW/Active UNCW/research/Programming/R Packages")
+install(RRW)
+install("RRW")
+setwd(wd)
+source("moralsRespBiasRW.r", echo=T)
+setwd("~/Dropbox/UNCW/Active UNCW/research/Programming/R Packages")
+setwd(wd)
+x.grid <- smartGridSearch(assessRRWfit, pU, pL, pI, otherParamList, numLoops = numGridLoops, numIntervals = numGridIntervals, optBoundLoops = optBoundLoops, multicore = useMultiCore, multicorePackages = multicorePackages)
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)
+ch.updateRpackage(packageName="RRW")
+plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)
+source("moralsRespBiasRW.r", echo=T)
+keepColsRT
+otherParamList
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="smartGridSearch")
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+df.raw
+eC <- c("n", "startEffect")
+df.raw[,eC]
+cbind(df.raw,df.raw[,eC])
+cbind(df.raw,df.raw[,eC, drop=F])
+eC <- c("n")
+cbind(df.raw,df.raw[,eC])
+cbind(df.raw,df.raw[,eC, drop=F])
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="RRW")
+ch.updateRpackage(packageName="smartGridSearch")
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+df.fitted
+na.omit(df.fitted)
+ch.updateRpackage(packageName="RRW")
+if(choiceRespBias) {#
+    plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  } else {#
+      plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  }
+df.fitted
+df.fitted[!is.na(df.fitted$rt),]
+ch.updateRpackage(packageName="RRW")
+ch.updateRpackage(packageName="RRW")
+ch.updateRpackage(packageName="RRW")
+if(choiceRespBias) {#
+    plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  } else {#
+      plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  }
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+if(choiceRespBias) {#
+    plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  } else {#
+      plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  }
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+df.fitted <- do.call(getRRWfit, x.in)
+df.fitted <- do.call(getRRWfit, x.in)
+x.in
+df.fitted <- do.call(getRRWfit, x.in)
+df.fitted <- do.call(getRRWfit, x.in)
+#save the fit data#
+  filename <- paste(fileTag,"Fitted.txt")#
+  write.table(df.fitted, filename, col.names=T, row.names=F, quote=F, sep="\t")#
+#
+  #plot the output#
+  plotFilename <- paste(fileTag,"FitResults.pdf")#
+  yMinMixRT <- chutils::ch.getPlotAxisMinMax(df.fitted$rt)#
+  if(choiceRespBias) {#
+    plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  } else {#
+      plotRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  }
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r", echo=T)
+df.raw
+source("moralsRespBiasRW.r", echo=T)
+keepColsPhit
+df.rwPhit.T
+df.pHit
+simpleCompareToChoice
+df.rwPhit.T<-data.frame(analysisReadyData %>% group_by(overlapRound, direct.xVy) %>% summarise(pHit = mean(correct01)))#
+  df.rwPhit.T$act <- ifelse(df.rwPhit.T$direct.xVy == -1, 1, -1)#
+  df.rwPhit.F<-data.frame(analysisReadyData %>% group_by(overlapRound, direct.xVy) %>% summarise(pHit = 1 - mean(correct01)))#
+  df.rwPhit.F$act <- ifelse(df.rwPhit.F$direct.xVy == -1, 1, -1)#
+#
+  df.rwRT<-data.frame(analysisReadyData %>% group_by(overlapRound, correct01, direct.xVy) %>% summarise(rt = mean(res.RT), n = length(correct01)))#
+  df.rwRT$act <- ifelse(df.rwRT$direct.xVy == -1, 1, -1)#
+#
+  keepColsPhit <- c(keepColsPhit, "act")#
+  keepColsRT <- c(keepColsRT, "act")
+df.rwRT
+df.rwPhit.T$correct <- TRUE#
+df.rwPhit.F$correct <- FALSE#
+df.rwRT$correct <- ifelse (df.rwRT$correct01 == 1, TRUE, FALSE)
+df.pHit <- merge(df.rwPhit.T,df.rwPhit.F, all=T)
+df.pHit
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+df.fitted <- do.call(getMeanRRWfit, x.in)#
+  #save the fit data#
+  filename <- paste(fileTag,"MeanFitted.txt")#
+  write.table(df.fitted, filename, col.names=T, row.names=F, quote=F, sep="\t")#
+#
+  #plot the output#
+  plotFilename <- paste(fileTag,"MeanFitResults.pdf")#
+  yMinMixRT <- chutils::ch.getPlotAxisMinMax(df.fitted$rt)#
+  if(choiceRespBias) {#
+    plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT)#
+  } else {#
+      plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("simple", plotFilename), yMinMixRT=yMinMixRT)#
+  }
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralsRespBiasRW.r", echo=T)
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+if(choiceRespBias) {#
+    plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT, numSimsToAverage=otherParamList$numSimsToAverage = 50 )#
+  } else {#
+      plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("simple", plotFilename), yMinMixRT=yMinMixRT, numSimsToAverage=otherParamList$numSimsToAverage = 50)#
+  }
+if(choiceRespBias) {#
+    plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT, numSimsToAverage=otherParamList$numSimsToAverage )#
+  } else {#
+      plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("simple", plotFilename), yMinMixRT=yMinMixRT, numSimsToAverage=otherParamList$numSimsToAverage)#
+  }
+if(choiceRespBias) {#
+    plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", "startEffect",  plotFilename = paste("startEffect", plotFilename), yMinMixRT=yMinMixRT, numSimsToPlot=otherParamList$numSimsToAverage )#
+  } else {#
+      plotMeanRRWFit (df.fitted, otherParamList$dataRtCol, otherParamList$dataPhitCol,  "rtFit", "pCross", "correct", "overlap", plotFilename = paste("simple", plotFilename), yMinMixRT=yMinMixRT, numSimsToPlot=otherParamList$numSimsToAverage)#
+  }
+source("moralRRWrunMeanFit.r")
+ch.updateRpackage(packageName="RRW")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralRRWrunMeanFit.r")
+source("moralsRespBiasRW.r", echo=T)
+df.fitted
+head(df.fitted)
+df.raw
+x.grid
+x.in
+df.fitted$overlap
+df.fitted$correct
+head(df.fitted)
+ch.updateRpackage(packageName="RRW")

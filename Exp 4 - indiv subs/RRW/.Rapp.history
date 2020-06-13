@@ -1,0 +1,3 @@
+library(chutils)
+ch.updateRpackage(packageName="RRW")
+source("moralsRespBiasRW.r")
